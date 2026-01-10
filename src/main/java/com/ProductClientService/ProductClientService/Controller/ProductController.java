@@ -36,12 +36,9 @@ public class ProductController {
             @RequestParam(required = false) UUID sellerId,
             @RequestParam(required = false) String attributeName,
             @RequestParam(required = false) String attributeValue,
-            @RequestParam(required = false) boolean includeFilter,
-            @RequestParam(required = false) String discounttype,
-            @RequestParam(required = false) Integer discount
-            ) {
+            @RequestParam(required = false) boolean includeFilter) {
         ApiResponse<Object> response = productService.searchProducts(categoryId, brandId, sellerId, attributeName,
-                attributeValue, includeFilter, discounttype,discount);
+                attributeValue, includeFilter);
         return ResponseEntity.status(response.statusCode()).body(response);
     }
 

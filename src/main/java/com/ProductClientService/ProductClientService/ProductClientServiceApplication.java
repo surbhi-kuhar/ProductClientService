@@ -16,13 +16,12 @@ public class ProductClientServiceApplication {
 
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.configure()
-		.directory("./src/main/resources") // path to your .env file
-		.load();
+				.directory("./src/main/resources") // path to your .env file
+				.load();
 
 		// Set all env vars so Spring can use them
 		dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(),
-		entry.getValue()));
+				entry.getValue()));
 		SpringApplication.run(ProductClientServiceApplication.class, args);
 	}
-
 }

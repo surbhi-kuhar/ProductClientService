@@ -16,5 +16,4 @@ public class ProductSearchCriteria {
     private Map<String, String> attributes = new HashMap<>();
     private String lowestPrice;
     private String highestPrice;
-    private Map<String, Integer> discount = new HashMap<>();
 }

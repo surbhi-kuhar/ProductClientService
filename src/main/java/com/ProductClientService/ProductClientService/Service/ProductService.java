@@ -65,7 +65,7 @@ public class ProductService {
     @Transactional(readOnly = true)
 
     public ApiResponse<Object> searchProducts(UUID categoryId, UUID brandId, UUID sellerId,
-            String attributeName, String attributeValue, boolean includeFilter, String discounttype,Integer discount) {
+            String attributeName, String attributeValue, boolean includeFilter) {
         ProductSearchBuilder builder = new ProductSearchBuilder();
 
         if (categoryId != null)
@@ -76,9 +76,6 @@ public class ProductService {
             builder.seller(sellerId);
         if (attributeName != null && attributeValue != null) {
             builder.attribute(attributeName, attributeValue);
-        }
-        if(discounttype!=null && discount!=null){
-            builder.discount(discounttype, discount);
         }
 
         List<ProductSearchDto> products = builder.execute(productSearchRepository);
